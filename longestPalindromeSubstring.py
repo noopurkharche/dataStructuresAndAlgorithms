@@ -1,4 +1,4 @@
-# method for longestPalindrome substring
+=# method for longestPalindrome substring
 # considers each character as cenyter and find the longest palindrome around it
 # @para[in] : s - inputString
 # @para[out]: None
@@ -22,6 +22,7 @@ def longestPalindrome(s):
                 if h-l+1 > max_length:
                     start = l
                     max_length = h-l+1
+		#expand around
                 l -= 1
                 h += 1
             
@@ -32,6 +33,7 @@ def longestPalindrome(s):
                 if h-l+1 > max_length:
                     start = l
                     max_length = h-l+1
+		#expand around the center character
                 l -= 1
                 h += 1
         #printing the longest length palidrome
