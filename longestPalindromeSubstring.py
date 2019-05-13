@@ -1,4 +1,4 @@
-=# method for longestPalindrome substring
+# method for longestPalindrome substring
 # considers each character as cenyter and find the longest palindrome around it
 # @para[in] : s - inputString
 # @para[out]: None
