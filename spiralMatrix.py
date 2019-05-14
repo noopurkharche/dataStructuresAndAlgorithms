@@ -17,7 +17,7 @@ def spiralPrint(matrix):
     
     while k<m and l <n:
         # print the first row #1,2,3,4
-        for i in range(n):
+        for i in range(l,n):
             print(matrix[k][i])
         k = k + 1
         
