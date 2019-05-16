@@ -21,7 +21,7 @@ class DoublyLinkedList:
         self.head = new_node
         return 
     
-    # insert neew node after the given node
+    # insert new node after the given node
     def insertAfter(self, prev_node, data):
         new_node = Node(data)
         new_node.prev = prev_node
@@ -57,7 +57,7 @@ class DoublyLinkedList:
         current = self.head
         str1 = ""
         while current is not None:
-            str1 = str1 + "<- " + str(current.data) + " ->"
+            str1 = str1 + "<- " + str(current.data) + " -> "
             current = current.next
         print(str1)
         
@@ -84,28 +84,49 @@ class DoublyLinkedList:
         new_node.prev = current
         
         return    
+    
+    # remove the duplucates from the doubly linked list
+    def removeDuplicates(self):
+        
+        # dictionary to check for Duplicates
+        dict = {}
+        
+        current = self.head
+        
+        # loop until the end
+        while current is not None:
+            
+            # check if it is present in dictionary
+            if current.data not in dict:
+                dict[current.data] = 1
+            else:
+                print("Duplicate " + str(current.data))
                 
-        
-        
+                # store the previous node of the current node
+                prev_node = current.prev
+                
+                # check if the node is thee last node
+                if current.next is not None:
+                    prev_node.next = current.next
+                    current.next.prev = prev_node
+                else:
+                    # if duplicate node is the last Node
+                    prev_node.next = None
+                
+            current = current.next
 
 l1 = DoublyLinkedList()
+l1.append(1)
 l1.append(6)
 l1.append(2)
 l1.append(1)
-
 # at the start
 l1.push(7)
-
 # insert afetr the given node
 l1.insertAfter(l1.head, 8)
 l1.insertAfterData(6,10)
+l1.append(1)
+l1.append(1)
 print(l1.printDll())
-    
-    
-        
-    
-        
-        
-        
-        
-    
+l1.removeDuplicates()
+print(l1.printDll())
