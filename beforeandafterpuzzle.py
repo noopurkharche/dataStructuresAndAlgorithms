@@ -8,6 +8,10 @@ array = ["mission statement",
     "eat my words",
     "bar of soap"]
 
+# output - a man on mission impossible
+# a man on mission statement
+# a quick bite to eat my words
+
 # this stores the first word and sentence
 firstDict = {}
 # this stores the last word and sentence
