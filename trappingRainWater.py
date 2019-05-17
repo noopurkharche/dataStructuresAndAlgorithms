@@ -1,6 +1,8 @@
 H = [0,1,0,2,1,0,1,3,2,1,2,1]
 n = len(H)
+# max of left
 maxl = 0
+# max of right
 maxr = 0
 left = 0
 right = n-1
