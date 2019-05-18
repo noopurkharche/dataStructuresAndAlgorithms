@@ -1,4 +1,20 @@
 # social network to represent friends 
+"""
+1. How the code is structured?
+	a) Input values are case  sensitive. Thus make sure that you are  providing correct  values. 
+	b) Program takes command line input. The input includes: input_filename(contains graph data), source_node and destination_node.
+	c) Data given in the input file is represented as a graph using a dictionary and "Node" class object. "Node" class object is used to store information about each vertex and its adjacent vertices's.  		
+	d) Function canBeConnected calls method path_search which checks whether there exists a path between two nodes or not and accordingly returns true or false.      
+
+2. How to run the code?
+	Run below command to execute the program from command prompt
+    python find_route.py input_file_name Person_name1 Person_name2
+
+NOTE:
+Input file contains social network data in following format:
+Person_name	Person's_friend_name 
+
+"""
 import sys
 
 #Node class contains the Vertex information.
