@@ -1,9 +1,12 @@
 import os
 
+# class for the Board
 class Board():
+    
     def __init__(self):
         self.cells = [" ", " ", " "," "," "," "," "," "," ", " "]
     
+    # method to display board
     def display(self):
         print(" %s | %s | %s " %(self.cells[1], self.cells[2], self.cells[3]))
         print("-------------")
@@ -12,10 +15,12 @@ class Board():
         print(" %s | %s | %s " %(self.cells[7], self.cells[8], self.cells[9]))
         print("-------------")
     
+    # method to update the board
     def update_board(self, cellno, player):
         if self.cells[cellno] == " ":
             self.cells[cellno] = player
     
+    # method to check for the winner 
     def checkWinner(self):
         
         #Check for X win
@@ -55,40 +60,50 @@ class Board():
             exit()
         
 		
-board = Board()
 
-while True:
-    board.display()
-    val = board.checkWinner()
+def main():
     
-    if val == " ":
+    # initialize the board
+    board = Board()
     
-        x_choice = int(input("\n (X) Please choose 1-9.  > "))
-        board.update_board(x_choice,"X")
-        
-        # exit if winner found or draw
-        board.checkWinner()
-        
+    
+    while True:
         board.display()
-    
-        o_choice = int(input("\n (O) Please choose 1-9.  > "))
-        board.update_board(o_choice,"O")
-        
-        board.display()
-        
-        # exit if winner found or draw
         val = board.checkWinner()
-    else:
-        if val == "X":
-            print("Player X wins!!")
-            exit()
+    
+        if val == " ":
+        
+            # player x makes the move
+            x_choice = int(input("\n (X) Please choose 1-9.  > "))
+            board.update_board(x_choice,"X")
+        
+            # exit if winner found or draw
+            board.checkWinner()
+        
+            board.display()
+        
+            # player x makes the move
+            o_choice = int(input("\n (O) Please choose 1-9.  > "))
+            board.update_board(o_choice,"O")
+
+            board.display()
+        
+            # exit if winner found or draw
+            val = board.checkWinner()
+            
         else:
-            if val == "O":
-                print("Player O wins!!")
+            # check who wins or draw
+            if val == "X":
+                print("Player X wins!!")
                 exit()
             else:
-                if val == "D":
-                    print("Game Draw!!")
+                if val == "O":
+                    print("Player O wins!!")
                     exit()
+                else:
+                    if val == "D":
+                        print("Game Draw!!")
+                        exit()
     
-    
+if __name__ == '__main__':
+    main()
