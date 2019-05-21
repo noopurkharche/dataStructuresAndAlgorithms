@@ -1,25 +1,29 @@
 # move all zeroes to the end
 # o(n) time complexity
-
-def moveZeroes(nums):
-    """
-    Do not return anything, modify nums in-place instead.
-    """
-    res1 = []
-    
-    # copy no n zero elements to different array
-    for i in nums:
-        if i != 0:
-            res1.append(i)
-    
-    n=nums.count(0)
-    
-    for i in range(len(res1)+n):
-        if i<len(res1):
-            nums[i] = res1[i]
-        else:
-            nums[i] = 0
-            
+ 
+    def moveZeroes(self, arr):
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        count = 0 # Count of non-zero elements 
+        n = len(arr)
+        # Traverse the array. If element  
+        # encountered is non-zero, then 
+        # replace the element at index 
+        # 'count' with this element 
+        for i in range(n): 
+            if arr[i] != 0: 
+                # here count is incremented 
+                arr[count] = arr[i] 
+                count+=1
+      
+        # Now all non-zero elements have been 
+        # shifted to front and 'count' is set 
+        # as index of first 0. Make all  
+        # elements 0 from count to end. 
+        while count < n: 
+            arr[count] = 0
+            count += 1            
 nums = [0,1,0,3,12]
 moveZeroes(nums)
 print(nums)
