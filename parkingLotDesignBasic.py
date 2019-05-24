@@ -1,8 +1,20 @@
-class Car:
+from abc import ABC, abstractmethod
+import enum
+
+class VehicleType(enum.Enum): 
+    car = 1
+    bus = 2
+    motorcycle = 3
+    
+class Vehicle(ABC):
+    vehicleType = None
+    
+
+class Car(Vehicle):
     def __init__(self, owner, plate):
         self.owner = owner
         self.plate = plate
-
+        self.vehicleType = VehicleType.car
 
 class Floor:
         def __init__(self, name, number_of_spaces):
@@ -73,6 +85,7 @@ class Garage:
 
 print("Welcome to parking lot:")
 car1 = Car("Noopur", 1)
+#print(car1.vehicleType)
 car2 = Car("Joey", 2)
 car3 = Car("John", 3)    
 car4 = Car("Jolly",4)
