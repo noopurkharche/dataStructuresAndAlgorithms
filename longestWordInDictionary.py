@@ -46,6 +46,7 @@ def longestWord(words):
         node = stack.pop(-1)
         if node.end:
             #print("Current" + node.word)
+            # if the words are of the same length then take the word in lexicographical order
             if len(res) < len(node.word) or (len(res) == len(node.word) and res > node.word):
                 #print("longest " + node.word)
                 res = node.word
